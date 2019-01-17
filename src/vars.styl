@@ -1,0 +1,45 @@
+$baseColor = #5cb85c 
+$baseColor-light = #5cb85c
+$btnColor = #5cb85c
+$btnColor-light = #5cb85c
+$btnColor-weight = #5cb85c
+$grayColor = #ccc
+$borderColor = #eee
+$linkColor = #5cb85c
+//00d8ff
+$center()
+	display flex
+	justify-content center
+	align-items center
+
+$1px-border(pos = bottom)
+	background linear-gradient(transparent 0, transparent 50%, $borderColor 50%)
+	background-size 100% 1px
+	background-repeat no-repeat
+	background-position pos
+
+$clearinput()
+	.clearinput 
+		display none
+		position absolute
+		right 0
+		top 0
+		width 1.6rem
+		line-height @width
+		text-align center
+		outline none
+	input:valid + .clearinput
+		display block
+$button()
+	.button
+		width 100%
+		border 0
+		background $btnColor
+		color #fff
+		line-height 1.8rem
+		font-size .7rem
+		text-align center
+		border-radius 5px
+		&.disabled
+			background-color #ddd
+			color #aaa

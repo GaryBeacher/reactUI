@@ -1,0 +1,1590 @@
+@import './assets/common.css'
+@import './vars.styl'
+@import './assets/icons/iconfont.css'
+@import './assets/animate.css'
+
+
+.isloading
+	position fixed
+	left 0
+	top 0
+	bottom 0
+	z-index 1000
+	width 100%
+	height 100%
+	display flex
+	justify-content center
+	align-items center
+	flex-direction column
+	p
+		padding-top 25px
+		color #999
+
+/*errorpage*/
+.errorpage
+	padding 3rem 4rem
+	.e404
+		height 2rem
+		$center()
+		font-size 1rem
+		color #999
+		border 8px solid transparent
+		border-radius 50px
+		background linear-gradient(white, white) padding-box,
+					repeating-linear-gradient(-45deg, $baseColor 0, $baseColor 12.5%, transparent 0, transparent 25%, $btnColor 0, $btnColor 37.5%, transparent 0, transparent 50%) 0 0 / 30rem 30rem
+		animation ant 12s linear infinite alternate
+@keyframes ant
+	to
+		background-position 100%
+
+/*body*/
+body
+	background-color #f6f6f6
+	font-size .6rem
+	line-height 1
+	font-family GillSans-Light
+
+/*react-router animation*/
+.layout
+	position absolute
+	width 100%
+	min-height calc(100% - 44px)
+	padding-top 44px
+
+.swipeLeft-enter
+	transform translate3d(100%, 0, 0)
+.swipeLeft-enter.swipeLeft-enter-active
+	transform translate3d(0, 0, 0)
+.swipeLeft-leave
+	transform translate3d(0, 0, 0)
+.swipeLeft-leave.swipeLeft-leave-active
+	transform translate3d(-100%, 0, 0)
+.swipeRight-enter
+	transform translate3d(-100%, 0, 0)
+.swipeRight-enter.swipeRight-enter-active
+	transform translate3d(0, 0, 0)
+.swipeRight-leave
+	transform translate3d(0, 0, 0)
+.swipeRight-leave.swipeRight-leave-active
+	transform translate3d(100%, 0, 0)
+.swipeLeft-enter,.swipeLeft-leave,.swipeRight-enter,.swipeRight-leave
+	transition transform .5s ease
+
+/*common*/
+.btn
+	color #fff
+	background $btnColor
+	padding .3rem .8rem
+	display inline-block
+	border-radius 5px
+	margin-bottom 15px
+	&:active
+		opacity .8
+.btn.multiple
+	margin 0 15px 15px 0
+.line
+	height 20px
+.btnouter
+	padding 20px 15px
+.abtn
+	color #fff
+	background $btnColor
+	width 100%
+	line-height 40px
+	text-align center
+	border-radius 5px
+	font-size .7rem
+pre
+	margin 0
+	border-left 3px solid $btnColor-weight
+	box-shadow 3px 3px 0 #eee
+	line-height 2
+	padding 0 .5rem
+	font-size 14px
+	font-family GillSans-Light
+	display block
+	white-space pre
+	background #fdfdfd
+	background-size auto 4em
+	background-image linear-gradient(rgba(0,0,0,0.05) 50%, transparent 0)
+.loading
+	position relative
+	&:before
+		content ''
+		position absolute
+		z-index 1000
+		top 50%
+		left 50%
+		width 30px
+		height 30px
+		margin-left -(@width / 2)
+		margin-top -(@height / 2)
+		pointer-events none
+		border 1px solid transparent
+		border-left-color $baseColor
+		border-right-color $baseColor
+		border-radius 50%
+		animation rotateCircle 1s linear infinite forwards
+@keyframes rotateCircle
+	to
+		transform rotate(360deg)
+
+
+/*head*/
+.head
+	background-color $baseColor
+	width 100%
+	height 44px
+	position fixed
+	left 0
+	top 0
+	z-index 99
+	background-image linear-gradient(-135deg, #00ddeb 0%, #5cb85c 100%)
+	box-shadow 0 6px 12px 0 #97e6ff
+	border-radius 8rpx
+	font-size 16rpx
+	color #fff
+
+	h1
+		line-height @height
+		font-size 20px
+		color #fff
+		text-align center
+	.back, .right
+		position absolute
+		width 44px
+		height @width
+		line-height @width
+		padding 0 5px
+		overflow hidden
+		display block
+		text-align center
+		color #fff
+		i
+			font-size 18px
+	.right
+		right 0
+		top 0
+footer
+		width 100%
+		text-align center
+		padding 30px 0
+		color $grayColor
+		bottom 0
+		left 0
+		position absolute
+		p
+			margin-top .5rem
+
+
+/*logo*/
+.svglogo
+	padding 40px 0 30px
+	div
+		width 280px
+		height 80px
+		margin 0 auto
+$logoBase(rotate = 0, top = -2px)
+	width 100%
+	height 2rem
+	box-sizing border-box
+	border 2px solid $baseColor
+	border-radius 50%
+	position absolute
+	transform rotate(rotate)
+	top top
+	left 0
+.logo
+	width 5rem
+	height @width
+	margin 2rem auto 0
+	position relative
+	.border
+		$logoBase(0, 1.5rem)
+		$center()
+		animation logo 5s linear infinite
+		&:before
+			content ''
+			$logoBase(60deg)
+		&:after
+			content ''
+			$logoBase(-60deg)
+		.circle
+			display inline-block
+			width .8rem
+			height @width
+			border-radius 50%
+			animation heart 5s linear infinite
+			i
+				color $baseColor
+				font-size .8rem
+@keyframes logo
+	to
+		transform rotate(360deg)
+@keyframes heart
+	to
+		transform rotate(-360deg)
+
+/*des*/
+.des
+	background #fff
+	margin 15px 0
+	padding 10px 15px
+	font-weight bold
+/*home*/
+.home
+	h2
+		text-align center
+		font-size .6rem
+		padding-top 15px
+		color $grayColor
+		font-family Baskerville-SemiBoldItalic
+		span
+			font-size .4rem
+			padding 0 3px
+			margin-left 5px
+			background $baseColor
+			border-radius 3px
+			color #fff
+			vertical-align text-top
+			font-family GillSans-Light
+	ul
+		padding 10px 15px 0
+		li
+			background-color #fff
+			margin-top 15px
+			border-radius 5px
+			transition background .2s
+			font-size .8rem
+			a
+				display block
+				border-radius 5px
+				&.active
+					background-color $baseColor
+					color #fff
+			div
+				padding 20px 15px 20px 20px
+				display flex
+				line-height 1.6rem
+				p
+					flex-grow 1
+				i
+					font-size 1.1rem
+					width 1.6rem
+					height @width
+					text-align center
+					&.rotateicon
+						animation rotateicon 8s linear infinite
+					
+@keyframes rotateicon
+	to
+		transform rotate(360deg)
+
+/*wavelogo*/
+.wavelogo
+	width 1.6rem
+	height @width
+	margin 0 auto
+	border-radius 50%
+	overflow hidden
+	background-color $baseColor
+	//transform scale(1)
+	//border .5px solid #00c6ff
+	.inner
+		position relative
+		width 1.6rem
+		height @width
+		&:before,&:after
+			content ''
+			position absolute
+			left -150%
+			top -330%
+			width 400%
+			height @width
+			background #f6f6f6
+			animation wmove 4s linear infinite
+		&:before
+			border-radius 46%
+		&:after
+			border-radius 43%
+			opacity .5
+@keyframes wmove
+	to
+		transform rotate(360deg)
+		
+/*contact*/
+.contact
+	.cont
+		padding-top 3rem
+		p
+			text-align center
+			img
+				width 60%
+			&.email
+				width 60%
+				margin .5rem auto 0
+				padding-top .5rem
+				color $grayColor
+				border-top 1px dashed $grayColor
+				font-family GillSans-SemiBoldItalic
+
+/*about*/
+.about
+	.cont
+		margin-top 15px
+		background-color #fff
+		padding 10px 15px
+		line-height 1.1rem
+		p
+			text-align justify
+		a
+			color $linkColor
+
+/*demos*/
+.demos
+	width 100%
+	padding-top 10px
+	ul
+		display flex
+		flex-wrap wrap
+		li
+			width 4rem
+			height @width
+			overflow hidden
+			background-color #fff
+			border-bottom 1px solid $borderColor
+			border-right 1px solid $borderColor
+			box-sizing border-box
+			&:nth-child(4n)
+				border-right none
+			a
+				width 100%
+				height @width
+				$center()
+				background-color #fff
+				flex-direction column
+				&:active
+					background-color $baseColor
+					color #fff
+					i
+						color #fff
+				span
+					font-size .6rem
+					i
+						font-size 1.1rem
+					&:last-child
+						margin-top: .3rem
+					
+			&.disabled
+				a
+					color $grayColor
+					i
+						color $grayColor
+
+/*demoarea*/
+.demoarea
+	padding 15px
+	background #fff
+			
+
+/*tab*/
+.tab
+	height 300px
+	background-color #fff
+	.tabhd
+		position relative
+		width 100%
+		overflow hidden
+		ul
+			display flex
+			border-bottom 2px solid $grayColor
+			li
+				flex-grow 1
+				width 100%
+				text-align center
+				line-height 60px
+				transition all .3s
+				&.on
+					color $baseColor
+		.block
+			position absolute
+			top 44px
+			width 25%
+			height 2px
+			transition all .3s
+			background $baseColor
+	.tabwd
+		position relative
+		width 20%
+		overflow hidden
+		display inline-block
+		ul
+			display flex
+			border-right 2px solid $grayColor
+			flex-direction column
+			li
+				flex-grow 1
+				width 100%
+				text-align center
+				line-height 60px
+				transition all .3s
+				&.on
+					color $baseColor
+		.block
+			position absolute
+			top 0
+			right 0
+			width 2px
+			transition all .3s
+			background $baseColor
+	.tabcont
+		width 100%
+		overflow hidden
+		dl
+			display flex
+			transition transform .4s
+			dd
+				flex-grow 1
+				width 100%
+				min-height 6rem
+				line-height 1.2rem
+				box-sizing border-box
+				padding 15px
+				img
+					width 100%
+					height 100%
+					object-fit cover
+.tabcontV
+		width 78%
+		overflow hidden
+		display inline-block
+		height 100%
+		dl
+			display flex
+			transition transform .4s
+			flex-direction column
+			dd
+				flex-grow 1
+				width 100%
+				min-height 6rem
+				line-height 1.2rem
+				box-sizing border-box
+				padding 15px
+				img
+					width 100%
+					height 100%
+					object-fit cover
+
+/*slide*/
+.slide
+	width 100%
+	height 7.5rem
+	position relative
+	.imgbox
+		width 100%
+		height @width
+		overflow hidden
+		ul
+			width 400%
+			height 100%
+			overflow hidden
+			display flex
+			transition transform .35s
+			touch-action none
+			li
+				flex-grow 1
+				position relative
+				img
+					width 100%
+					height 100%
+					object-fit cover
+				p
+					position absolute
+					bottom 0
+					width 100%
+					line-height 1.2rem
+					background rgba(0, 0, 0, .5)
+					color #fff
+					font-size .6rem
+					text-indent .8em
+	.arrows
+		position absolute
+		bottom .35rem
+		width 100%
+		height .4rem
+		$center()
+		span
+			width .4rem
+			height @width
+			display inline-block
+			background hsla(0, 100%, 100%, .5)
+			margin 0 5px
+			border-radius 50%
+			&.on
+				background $baseColor
+		&.showtext
+			justify-content flex-end
+			span
+				width .3rem
+				height @width
+				margin 0 5px 0 0
+
+/*totop*/
+.totop
+	position fixed
+	right 1rem
+	bottom 2rem
+	z-index 1000
+	width 2rem
+	height @width
+	line-height @width
+	border-radius 50%
+	color #ccc
+	text-align center
+	background $baseColor
+	color #fff
+	opacity 0
+	visibility hidden
+	transition all .3s
+	&.show
+		opacity 1
+		visibility visible
+	.iconfont
+		font-size 26px
+.totoppage
+	padding 10px 15px
+	background #fff
+	p
+		line-height 1rem
+		margin-bottom .6rem
+		text-indent 2em
+
+/*actionsheet*/
+.actionsheetdes
+	padding 15px
+	background #fff
+	.actiontext
+		margin-left 15px
+.actionsheet
+	touch-action none
+	.inner
+		position absolute
+		left 0
+		bottom 0
+		width 100%
+		z-index 100
+		background #fff
+		transition transform .2s
+		transform translate3d(0, 100%, 0)
+		display none
+		&.trans
+			transform translate3d(0, 0, 0)
+			min-height initial
+		&.show
+			display block
+		li
+			width 100%
+			height 2rem
+			line-height @height
+			$1px-border(bottom)
+			text-align center
+			&:nth-last-child(2)
+				background none
+			&:last-child 
+				border-top 6px solid $borderColor
+				background none
+			&:active
+				background rgba(0, 0, 0, .03)
+	.mask
+		background rgba(0, 0, 0, 0.5)
+		position fixed
+		top 0
+		left 0
+		z-index 99
+		width 100%
+		height 100%
+		opacity 0
+		visibility hidden
+		transition all .3s
+		&.show
+			opacity 1
+			visibility visible
+
+
+/*animate*/
+.animatedemo
+	background #fff
+	padding 15px
+	span
+		display block
+		height 5rem
+		.demo
+			width 4rem
+			line-height @width
+			border-radius 50%
+			text-align center
+			font-size 1rem
+			color #fff
+			margin 0 auto
+			background $baseColor
+	ul
+		display flex
+		flex-flow wrap
+		border-top 1px solid $borderColor
+		li
+			width 33.3333%
+			line-height 2rem
+			text-align center
+			border-bottom 1px solid $borderColor
+			border-right 1px solid $borderColor
+			box-sizing border-box
+			&:nth-child(3n)
+				border-right none
+
+/*dialog*/
+.dialogdemo
+	background #fff
+	padding 15px
+
+.overmask
+	background rgba(0, 0, 0, 0.5)
+	position fixed
+	top 0
+	left 0
+	z-index 99
+	width 100%
+	height 100%
+.overmask-enter
+	opacity 0
+.overmask-enter.overmask-enter-active
+	opacity 1
+	transition all .5s
+.overmask-leave
+	opacity 1
+.overmask-leave.overmask-leave-active
+	opacity 0
+	transition all .5s
+.dialog
+	position fixed
+	width 100%
+	height 100%
+	left 0
+	top 0
+	z-index 100
+	display flex
+	justify-content center
+	align-items center
+	text-align center
+	touch-action none
+	.innerbox
+		width 80%
+		background-color #fff
+		border-radius 5px
+		.title
+			padding 20px 0 0
+			font-weight 600
+			font-size .7rem
+		.content
+			color #666
+			padding 20px 0 25px
+			line-height 1.2rem
+			font-size .6rem
+		.buttons
+			height 2rem
+			overflow hidden
+			border-top 1px solid #eee
+			display flex
+			span
+				line-height 2rem
+				flex-grow 1
+				&:active
+					background-color $grayColor
+					border-bottom-left-radius 5px
+					border-bottom-right-radius 5px
+				&.cancle
+					position relative
+					&:before
+						content ''
+						position absolute
+						right 0
+						top 0
+						width 1px
+						height 100%
+						border-right 1px solid #eee
+				&.confirm
+					font-size .7rem
+
+/*toast*/
+.toast
+	position fixed
+	left 0
+	top 0
+	width 100%
+	height 100%
+	$center()
+	touch-action none
+	div
+		background-color rgba(0, 0, 0, .7)
+		color #fff
+		padding 10px 15px
+		border-radius 5px
+		text-align center
+		h3
+			padding 0 10px
+			font-size .6rem
+			font-weight 300
+		span
+			height 40px
+			display block
+			margin-bottom 8px
+			overflow hidden
+			$center()
+			.iconfont
+				font-size 36px
+
+/*gesture*/
+.gesture
+	li
+		height 8rem
+		background $borderColor
+		margin-top 15px
+		$center()
+		flex-flow column
+		p
+			margin-top 10px
+			img
+				width 2.5rem
+
+/*fullpage*/
+
+.fullpage 
+	position absolute
+	width 100%
+	height calc(100% - 44px)
+	overflow hidden
+	&.fullpagex
+		ul
+			display flex
+	.pages
+		position absolute
+		bottom 15px
+		width 100%
+		text-align right
+		padding 0 15px
+		box-sizing border-box
+		color #fff
+	.tips
+		position absolute
+		bottom 15px
+		width 100%
+		text-align center
+		color #fff
+		animation arrowtop 1s linear infinite alternate
+		i
+			font-size 30px
+	.tipsx
+		position absolute
+		bottom 47.5%
+		right 10px
+		width 30px
+		text-align center
+		color #fff
+		animation arrowright 1s linear infinite alternate
+		i
+			font-size 30px
+	ul
+		width 100%
+		height 100%
+		transition transform .5s
+		transform translate3d(0, 0, 0)
+		li
+			$center()
+			width 100%
+			box-sizing border-box
+			font-size 1.8rem
+			font-weight 200
+			color #fff
+			height 100%
+			text-align center
+			.code
+				color #333
+				text-align left
+	.animated
+		width 100%
+		-webkit-animation-name none
+		animation-name none
+	.on .fadeInLeft
+		-webkit-animation-name fadeInLeft
+		animation-name fadeInLeft
+	.on .zoomIn
+		-webkit-animation-name zoomIn
+		animation-name zoomIn
+		
+@keyframes arrowtop
+	to
+		transform translateY(10px)
+@keyframes arrowright
+	to
+		transform translateX(10px)
+
+/*countdown*/
+.countdown
+	text-align center
+	display flex
+	margin 0 auto
+	line-height 3rem
+	font-size 1rem
+	width 80%
+	div
+		flex-grow 1
+		span
+			color #fff
+			font-weight 700
+			padding 3px 5px
+			border-radius 5px
+			background $baseColor
+			margin-right .2rem
+
+/*switch*/
+.switchdemo
+	background #fff
+	padding 10px 15px
+	display flex
+	margin-top 15px
+	.left
+		flex-grow 1
+		line-height 30px
+		
+.switch
+	display inline-block
+	input
+		position relative
+		width 52px
+		height 30px
+		border 1px solid #dfdfdf
+		outline none
+		border-radius 16px
+		box-sizing border-box
+		background-color #dfdfdf
+		transition background-color .1s, border .1s
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			width 50px
+			height 28px
+			border-radius 15px
+			background-color #fdfdfd
+			transition transform .35s cubic-bezier(0.45, 1, 0.4, 1)
+		&:after
+			content ''
+			position absolute
+			top 0
+			left 0
+			width 28px
+			height 28px
+			border-radius 15px
+			background-color #fff
+			box-shadow 0 1px 3px rgba(0, 0, 0, 0.4)
+			transition transform .35s cubic-bezier(0.4, 0.4, 0.25, 1.35)
+		&:checked
+			border-color $baseColor
+			background-color $baseColor
+			&:before
+				transform scale(0)
+			&:after
+				content ''
+				transform translateX(21px)
+				
+/*refresh*/
+.refreshdemo
+	height 100%
+	$center()
+	background-color #ededed
+	font-size 1rem
+.refresh-outer
+	height 160px
+	overflow hidden
+	position relative
+	.refresh-load
+		position absolute
+		top -60px
+		width 100%
+		height 60px
+		$center()
+		.pause.loading:before
+			animation-play-state paused
+	.refresh-inner
+		height 100%
+		transition transform .2s
+
+/*infiniteload*/
+.infinitedemo
+	min-height 300px
+	background-color #ededed
+	li
+		line-height 44px
+		text-indent 1em
+		border-bottom 1px solid $borderColor
+.infinite-outer
+	width 100%
+	height 300px
+	position relative
+	overflow hidden
+	.infinite-inner
+		height 100%
+		overflow auto
+		overflow-scrolling touch
+		-webkit-overflow-scrolling touch
+		&::-webkit-scrollbar
+			display none
+			width 0
+		.infinite-icon
+			height 50px
+			$center()
+
+/*progress*/
+.progress
+	.xline
+		width 100%
+		background-color #eee
+		border-radius 10px
+		.inner
+			height 100%
+			width 0
+			transition width .1s
+			border-radius 10px
+			background-color $btnColor
+	circle
+		transition stroke-dasharray .1s
+		
+/*citypicker*/
+.citycont
+	display flex
+	height 3rem
+	margin-bottom 15px
+	li
+		border-bottom 1px solid $borderColor
+		font-size .8rem
+		&:first-child, &:last-child
+			flex-grow 1
+		&:nth-child(2)
+			flex-basis 60px
+			border-bottom none
+			$center()
+			.iconfont
+				font-size 1.2rem
+				color $baseColor
+		span
+			color $grayColor
+			font-size .6rem
+			
+.citybox
+	position absolute
+	left 0
+	top 0
+	width 100%
+	height 100%
+	z-index 100
+	background #fff
+	font-size 16px
+	padding-top 44px
+	box-sizing border-box
+.citybar
+	position absolute
+	left 0
+	top 0
+	width 100%
+	height 44px
+	line-height 44px
+	text-align center
+	color #fff
+	background $baseColor
+.citynav
+	position fixed
+	top 0
+	right 0
+	z-index 11
+	width 44px
+	text-align center
+	display flex
+	flex-direction column
+	min-height calc(100% - 80px)
+	padding-top 60px
+	li
+		flex-grow 1
+		color $baseColor
+		font-size .6rem
+		font-weight 600
+.tagword
+	width 80px
+	height @width
+	line-height @width
+	background-color rgba(0, 0, 0, .4)
+	position fixed
+	left 40%
+	top 40%
+	border-radius 50%
+	text-align center
+	font-size 32px
+	color #fff
+.citybox .inner {
+	-webkit-overflow-scrolling: touch;
+}
+.citybox .inner
+	width 100%
+	height 100%
+	overflow auto
+	overflow-scrolling touch
+	font-size .6rem
+	background-color #f3f3f3
+	.hotcity
+		padding-left 20px
+		dt
+			padding-top 10px
+		dd
+			width 25%
+			display inline-block
+			line-height 1.8rem
+			background-color #fff
+			border-radius 5px
+			text-align center
+			margin-top 10px
+			margin-right 10px
+	.citylist
+		backface-visibility hidden
+		dt
+			padding-top 10px
+			padding-left 20px
+			padding-bottom 10px
+		dd
+			background-color #fff
+			line-height 2rem
+			border-bottom 1px solid #eee
+			padding-left 20px
+			span
+				color #999
+				padding-left 10px
+
+/*datepicker*/
+.datepickerdemo
+	.tab
+		min-height 100px
+		.tabcont dl dd
+			min-height 56px
+		.datecont
+			$1px-border(bottom)
+			height 1.7rem
+			display flex
+			margin-bottom 15px
+			li
+				font-size .9rem
+				flex-grow 1
+				&:nth-child(2)
+					text-align right
+				span
+					font-size .6rem
+					margin-left 5px
+					color $grayColor
+.datepicker
+	position absolute
+	left 0
+	top 0
+	width 100%
+	height 100%
+	z-index 100
+	background #fff
+	font-size 16px
+	padding-top 44px
+	box-sizing border-box
+	.datebar
+		position absolute
+		left 0
+		top 0
+		width 100%
+		height 44px
+		line-height 44px
+		text-align center
+		color #fff
+		background $baseColor
+	.weekbar
+		line-height 30px
+		width 100%
+		box-sizing border-box
+		position absolute
+		left 0
+		top 44px
+		border-bottom 1px solid $borderColor
+		background #fff
+		z-index 100
+		display flex
+		li
+			flex-grow 1
+			text-align center
+			&:nth-child(1),&:nth-child(7)
+				color $baseColor
+	.plytext
+		position fixed
+		bottom 20px
+		left 4rem
+		width 50%
+		line-height 36px
+		border-radius 5px
+		background-color rgba(0, 0, 0, .6)
+		color #fff
+		text-align center	
+		
+	.monthlist
+		height calc(100% - 30px)
+		margin-top 30px
+		box-sizing border-box
+		overflow auto
+		-webkit-overflow-scrolling touch
+		overflow-scrolling touch
+		dt
+			line-height 1.6rem
+			border-top 1px solid $borderColor
+			border-bottom 1px solid $borderColor
+			font-weight 700
+			text-align center
+			margin-top -1px
+			background-color #f2f2f2
+			
+		dd
+			ul
+				display flex
+				flex-wrap wrap
+				li
+					flex-basis 2.285714rem
+					height 2.5rem
+					border-bottom 1px solid $borderColor
+					$center()
+					flex-direction column
+					&:nth-child(7n),&:nth-child(7n + 1)
+						color $baseColor
+					&.disabled
+						color $grayColor
+					&.on
+						color #fff
+						background $baseColor
+					&.interval
+						background $baseColor-light
+						color #333
+					em
+						font-size .5rem
+						margin-top 5px
+					span
+						font-size .5rem
+						margin-bottom 5px
+			
+/*login*/
+$button()
+$clearinput()
+.login
+	.tips
+		margin-top 20px
+		color #999
+		text-align center
+	.frow
+		padding 20px 0 0
+	.lrp20
+		padding-left 15px
+		padding-right 15px
+	.row
+		display flex
+		border-bottom 1px solid #ededed
+		background-color #fff
+		height 1.6rem
+		padding 5px 0
+		line-height 1.6rem
+		label
+			flex-basis 5em
+			text-align center
+			border-right 1px solid #ededed
+			color #999
+		.labeldes
+			flex-basis 100px
+			text-align center
+			border-left 1px solid #ededed
+			color $baseColor
+			img
+				width 90px
+				height 1.6rem
+				display inline-block
+		.input
+			flex-grow 1
+			position relative
+			input
+				width 100%
+				border none
+				height .6rem
+				padding .5rem 0
+				text-indent 1em
+				color #666
+				vertical-align top
+				font-size .6rem
+
+/*slider*/
+.sliderdemo1
+	.sliderwrap
+		margin -25px auto 0
+	.imgslider
+		position relative
+		display inline-block
+		div
+			position absolute
+			left 0
+			top 0
+			bottom 0
+			width 100%
+			overflow hidden
+			img
+				position absolute
+				height 100%
+				filter sepia(.9)
+		img
+			display block
+.sliderwrap
+	margin 0 15px
+	height 28px
+	user-select none
+	.slider
+		position relative
+		height 2px
+		background-color #eee
+		.slidertrack
+			height 2px
+			background-color $baseColor
+			width 0
+		.sliderhandler
+			position absolute
+			left 0
+			top 50%
+			width 28px
+			height @width
+			margin-left -(@width/2)
+			margin-top -(@width/2)
+			border-radius 50%
+			background-color #fff
+			box-shadow 0 0 4px rgba(0, 0, 0, .4)
+			touch-action none
+
+/*listview*/
+.listdemo
+	line-height 2.8rem
+	padding-left 20px
+	h2
+		font-size .7rem
+		font-weight 300
+.listview-outer
+	width 100%
+	height calc(100vh - 44px)
+	position relative
+	overflow hidden
+	.listview-inner
+		height 100%
+		overflow auto
+		overflow-scrolling touch
+		-webkit-overflow-scrolling touch
+		&::-webkit-scrollbar
+			display none
+			width 0
+		.listview-more
+			height 50px
+			$center()
+		.listview
+			background-color #fff
+			li
+				position relative
+				overflow hidden
+				height 3rem
+				border-bottom 1px solid $borderColor
+				box-sizing border-box
+				.content
+					width 100%
+					height 100%
+					background-color #fff
+					position absolute
+					z-index 10
+					transition transform .2s
+					&.current
+						transform translate3d(-3rem, 0, 0)		
+					&:active
+						background-color $borderColor
+				.action
+					position absolute
+					z-index 1
+					right 0
+					top 0
+					bottom 0
+					background-color #f30
+					width 3rem
+					height 100%
+					$center()
+					color #fff
+					.iconfont
+						font-size 1rem
+						
+/*upload*/
+.uploaddemo
+	h3
+		font-size .8rem
+		line-height 2rem
+		border-top 1px solid $borderColor
+	ul
+		width 100%
+		display flex
+		flex-wrap wrap
+		li
+			width 4.5rem
+			height @width
+			position relative
+			margin-right .5rem
+			margin-bottom @margin-right
+			background-color #ccc
+			&:nth-child(3n)
+				margin-right 0
+			img
+				width 100%
+				height @width
+				object-fit cover
+.upload
+	position absolute
+	left 0
+	top 0
+	width 100%
+	height 100%
+	z-index 100
+	padding-top 44px
+	box-sizing border-box
+	background-color #f6f6f6
+	.inner
+		padding 15px 10px 0
+		background-color #fff
+	textarea
+		width 100%
+		min-height 100px
+		border 0
+		resize none
+		box-sizing border-box
+		margin-bottom 10px
+		font-size .6rem
+	.uploadbar
+		position absolute
+		left 0
+		top 0
+		width 100%
+		height 44px
+		line-height 44px
+		text-align center
+		color #fff
+		background $baseColor
+		.disabled
+			color rgba(255, 255, 255, .5)
+	.pics
+		width 100%
+		ul
+			width 100%
+			display flex
+			flex-wrap wrap
+			li
+				width 3.5rem
+				height @width
+				position relative
+				margin-right .33rem
+				margin-bottom @margin-right
+				background-color #ccc
+				&:nth-child(4n)
+					margin-right 0
+				.img
+					width 100%
+					height 100%
+					overflow hidden
+				img
+					width 100%
+					height @width
+					object-fit cover
+				.del
+					position absolute
+					right -7px
+					top -7px
+					width 20px
+					height 20px
+					text-align center
+					border-radius 50%
+					color #fff
+					background-color $baseColor
+					.iconfont
+						font-size 12px
+				input
+					width 100%
+					height 100%
+					opacity 0
+				label
+					position absolute
+					width 100%
+					height 100%
+					box-sizing border-box
+					border 2px solid #eee
+					background-color #fff
+					&:before
+						content ''
+						position absolute
+						left 49%
+						top 30%
+						width 3px
+						height 45%
+						background #ddd
+					&:after
+						content ''
+						position absolute
+						left 28%
+						top 50%
+						width 45%
+						height 3px
+						background #ddd
+						
+.imageshowpage
+	.inner
+		padding 20px .5rem
+		h2
+			border-bottom 1px solid #ddd
+			font-size .6rem
+			height .9rem
+			color #999
+			margin-bottom .5rem
+		.piclist
+			display flex
+			flex-wrap wrap
+			li
+				width 4.8rem
+				height @width
+				margin-bottom .3rem
+				margin-right .3rem
+				&:nth-child(3n)
+					margin-right 0
+				img
+					object-fit cover
+					width 100%
+					height 100%
+			
+.fullwrap
+	position fixed
+	left 0
+	top 0
+	bottom 0
+	right 0
+	background rgba(0, 0, 0, .9)
+	z-index 1000
+	overflow hidden
+	.close
+		position absolute
+		right 10px
+		top 10px
+		background rgba(255, 255, 255, .2)
+		border-radius 50%
+		padding 8px
+		color rgba(0, 0, 0, .9)
+		.iconfont
+			font-size .8rem
+			font-weight 700
+	.pages
+		position absolute
+		bottom 15px
+		width 100%
+		text-align center
+		padding 0 15px
+		box-sizing border-box
+		color #fff
+	ul
+		display flex
+		width 100%
+		height 100%
+		transition transform .5s
+		transform translate3d(0, 0, 0)
+		li
+			$center()
+			width 100%
+			box-sizing border-box
+			height 100%
+			text-align center
+
+.select
+	width 100%
+	background-color #fff
+	h2
+		border-bottom 1px solid $borderColor
+		line-height 1.5rem
+		font-size .6rem
+		text-indent 15px
+	li
+		line-height 1.6rem
+		border-bottom 1px solid $borderColor
+		color #999
+		margin-left 15px
+		span
+			margin-left 10px
+		.iconfont
+			font-size .8rem
+			vertical-align middle
+		&.selected
+			color $baseColor
+		&:last-child
+			border-bottom none
+
+.indicatordemo
+	margin-top 15px
+	background-color #fff
+	ul
+		display flex
+		flex-wrap wrap
+		li
+			width 4rem
+			height @width
+			border-right 1px solid $borderColor
+			border-bottom 1px solid $borderColor
+			box-sizing border-box
+			$center()
+			flex-direction column
+			&:nth-child(4n)
+				border-right none
+			h3
+				font-size .6rem
+				margin-bottom 10px
+.indicator
+	stroke #333
+	fill #333
+	vertical-align middle
+	display inline-block
+	width 1rem
+	height 1rem
+	
+.marqueebox
+	padding 0 .6rem
+	height 1.5rem
+	overflow hidden
+	background #fff
+	li
+		height 1.5rem
+		line-height @height
+	// for li in 1..10
+	// 	li:nth-child({li})
+	// 		background-color #ff5823 + 20% * li
+
+@media only screen and (max-width: 414px)
+	.upload .pics ul li
+		margin-right .4rem
+		margin-bottom @margin-right
+@media only screen and (max-width: 375px)
+	.upload .pics ul li
+		margin-right .38rem
+		margin-bottom @margin-right
+@media only screen and (max-width: 360px)
+	.upload .pics ul li
+		margin-right .37rem
+		margin-bottom @margin-right
+@media only screen and (max-width: 320px)
+	.upload .pics ul li
+		margin-right .33rem
+		margin-bottom @margin-right
